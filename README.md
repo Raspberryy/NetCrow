@@ -13,6 +13,20 @@ The main Features are:
  - Autosaving 
 
 # Installing NetCrow
-sudo -i
-cd to/path/you/want/to/install
-git clone https://github.com/Raspberryy/NetCrow.git
+  sudo -i <br />
+  cd to/path/you/want/to/install <br />
+  git clone https://github.com/Raspberryy/NetCrow.git <br />
+  sh install.sh
+
+# Installing Automatic Boot
+  sudo python AutoStart.py
+
+# Configure E-Mail Sending
+  nano attack.py
+    
+    Enter your E-Mail Data:
+    Sender = "YourGmailAdress@gmail.com"
+    Password = "YourGMailPassword"
+    Reciever = "YourEMailAdress@anyhost.com"
+
+ 
