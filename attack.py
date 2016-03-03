@@ -9,8 +9,9 @@ from email.mime.text import MIMEText
 
 
 # Define Attributes
-Version = "1.0"
+Version = "1.2"
 Creator = "Raspberry"
+Published = "https://github.com/Raspberryy/NetCrow"
 
 nettest = 0
 Path = os.path.dirname(os.path.abspath(__file__))
