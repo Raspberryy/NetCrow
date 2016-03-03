@@ -13,7 +13,7 @@ Version = "1.0"
 Creator = "Raspberry"
 
 nettest = 0
-Path = os.getcwd()
+Path = os.path.dirname(os.path.abspath(__file__))
 
 Sender = ""
 Password = ""
