@@ -16,7 +16,15 @@ The main Features are:
   sudo -i <br />
   cd to/path/you/want/to/install <br />
   git clone https://github.com/Raspberryy/NetCrow.git <br />
-  sh install.sh
+  sh install.sh <br />
+  
+  Enable IP IpTables <br />
+  
+    sudo nano /etc/etter.conf
+    Search for "redir_command_on/off" 
+    Remove # from "redir_command_on = "iptables [...]""
+    Remove # from "redir_command_off = "iptables [...]""
+
 
 # Installing Automatic Boot
   sudo python AutoStart.py
