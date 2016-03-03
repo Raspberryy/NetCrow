@@ -16,6 +16,7 @@ The main Features are:
   sudo -i <br />
   cd to/path/you/want/to/install <br />
   git clone https://github.com/Raspberryy/NetCrow.git <br />
+  cd NetCrow <br />
   sh install.sh <br />
   
   Enable IP IpTables <br />
