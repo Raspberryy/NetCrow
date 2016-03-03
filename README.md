@@ -25,24 +25,8 @@ The main Features are:
     Search for "redir_command_on/off" 
     Remove # from "redir_command_on = "iptables [...]""
     Remove # from "redir_command_off = "iptables [...]""
-    
-  Enter E-Mail Accounts <br />
-  
-    nano attack.py
-    Go to # Define Attributes
-    Enter your Gmail address in Sender
-    Enter your Gmail password in Password
-    Enter your E-mail address in Reciever
-  
-  DO NOT FORGET: <br />
-    Allow less secure apps to access your Gmail account <br />
-    Info: https://support.google.com/accounts/answer/6010255?hl=en <br />
-    Disable: https://www.google.com/settings/security/lesssecureapps
 
-
-# Installing Automatic Boot
-  sudo python AutoStart.py
-
+ 
 # Configure E-Mail Sending
   nano attack.py
     
@@ -50,5 +34,13 @@ The main Features are:
     Sender = "YourGmailAdress@gmail.com"
     Password = "YourGMailPassword"
     Reciever = "YourEMailAdress@anyhost.com"
+
+  DO NOT FORGET: <br />
+    Allow less secure apps to access your Gmail account <br />
+    Info: https://support.google.com/accounts/answer/6010255?hl=en <br />
+    Disable: https://www.google.com/settings/security/lesssecureapps
+
+# Installing Automatic Boot (Only if needed)
+  sudo python AutoStart.py
 
  
