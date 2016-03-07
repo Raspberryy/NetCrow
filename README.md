@@ -20,7 +20,7 @@ The main Features are:
   sh install.sh <br />
   
 # Enable IP IpTables
-  sudo nano /etc/etter.conf<br />
+  sudo nano /etc/ettercap/etter.conf<br />
   
     Search for "redir_command_on/off" <br />
     Remove # from "redir_command_on = "iptables [...]""<br />
