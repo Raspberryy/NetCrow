@@ -12,14 +12,14 @@ The main Features are:
  - Sending gathered Data via E-Mail to the User
  - Autosaving 
 
-# Installing NetCrow
+# I Installing NetCrow
   sudo -i <br />
   cd to/path/you/want/to/install <br />
   git clone https://github.com/Raspberryy/NetCrow.git <br />
   cd NetCrow/ <br />
   sh install.sh <br />
   
-  Enable IP IpTables <br />
+# II Enable IP IpTables
   sudo nano /etc/etter.conf<br />
   
     Search for "redir_command_on/off" <br />
@@ -27,7 +27,7 @@ The main Features are:
     Remove # from "redir_command_off = "iptables [...]""<br />
 
  
-# Configure E-Mail Sending
+# III Configure E-Mail Sending
   nano attack.py
     
     Enter your E-Mail Data:
