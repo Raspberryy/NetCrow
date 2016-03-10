@@ -220,9 +220,9 @@ def BootingAttack():
 
 # Main Program - Test for Commands
 
-if len(sys.argv)==2:
-	sys.argv.append(" ")
 if len(sys.argv)==1:
+	sys.argv.append(" ")
+if len(sys.argv)==2:
 	sys.argv.append(" ")
 
 if sys.argv[1]=="-h":
