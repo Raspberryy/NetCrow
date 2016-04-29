@@ -28,8 +28,8 @@ The main Features are:
   sudo nano /etc/ettercap/etter.conf<br />
   
     Search for "redir_command_on/off" <br />
-    Remove # from "redir_command_on = "iptables [...]""<br />
-    Remove # from "redir_command_off = "iptables [...]""<br />
+    Remove # from "redir_command_on = "iptables [...]""
+    Remove # from "redir_command_off = "iptables [...]""
 
  
 # Configure E-Mail Sending
