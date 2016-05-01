@@ -187,7 +187,7 @@ def DeleteBackup():
 
 def PrintHelp():
 	print ""
-	print green + under +  "                NETCROW - BY RASPBERRYY" + white	
+	print green + under +  "		NETCROW - BY RASPBERRYY" + white	
 	print ""
 	print "	Command List:"
 	print "	 -a             Start Attack manually"
