@@ -27,7 +27,7 @@ The main Features are:
 # Enable IP IpTables
   sudo nano /etc/ettercap/etter.conf<br />
   
-    Search for "redir_command_on/off" <br />
+    Search for "redir_command_on/off"
     Remove # from "redir_command_on = "iptables [...]""
     Remove # from "redir_command_off = "iptables [...]""
 
