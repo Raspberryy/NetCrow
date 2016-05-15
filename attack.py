@@ -183,7 +183,10 @@ def DeleteBackup():
 	print ""
 	time.sleep(2)
 	clearcommand = "rm " + Path + "/Logging/ettercap*"	
+	clearfile = "rm " + Path + "/ettercap.txt"
 	os.system(clearcommand)
+	os.system(clearfile)
+	
 
 def PrintHelp():
 	print ""
