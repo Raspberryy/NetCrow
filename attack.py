@@ -11,7 +11,7 @@ from email.mime.text import MIMEText
 
 # Define Attributes
 
-Version = "2.2"
+Version = "2.3"
 Creator = "Raspberry"
 Published = "https://github.com/Raspberryy/NetCrow"
 
