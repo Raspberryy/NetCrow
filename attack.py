@@ -226,8 +226,8 @@ def PrintHelp():
 	print "	 -r 		Prevent Reboot"
 	print "	 -s             Prevent NetCrow Start Message"
 	print "	 -t		Send Test E-Mail"
-	print "  --AutoStart-enable     Enable automatical Boot"
-        print "  --AutoStart-disable    Disable automatical Boot"
+	print "	 --AutoStart-enable     Enable automatical Boot"
+        print "	 --AutoStart-disable    Disable automatical Boot"
 	print ""
 
 
