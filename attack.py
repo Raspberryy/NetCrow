@@ -11,7 +11,7 @@ from email.mime.text import MIMEText
 
 # Define Attributes
 
-Version = "2.3"
+Version = "2.4"
 Creator = "Raspberry"
 Published = "https://github.com/Raspberryy/NetCrow"
 
@@ -42,6 +42,33 @@ under = '\033[4m'
 
 
 # Define Functions
+
+def AutoStart():
+
+        os.system("sudo crontab -l > mycron")
+        CommandString = "sudo echo \'@reboot sh " + Path + "/launcher.sh > " + Path + "/Logging/cronlog 2>&1  \' >> mycron"
+        os.system(CommandString)
+        os.system("sudo crontab mycron")
+        os.system("sudo rm mycron")
+        CommandLauncher = "echo \'sudo python " + Path + "/attack.py\' > launcher.sh"
+        os.system(CommandLauncher)
+
+def AutoStartDis():
+
+        # Warn User
+        print ""
+        print red + "           All Crontab Jobs are going to be deleted!!!" + white
+        print ""
+        print ""
+        raw_input("     Press any Key to continue...")
+        print ""
+
+        # Delete Jobs
+        os.system("crontab -r")
+
+        # Delete Launcher.sh
+        dellaun = "rm " + Path + "/launcher.sh"
+        os.system(dellaun)
 
 def SendMail(Subject, Text):
 
@@ -199,6 +226,8 @@ def PrintHelp():
 	print "	 -r 		Prevent Reboot"
 	print "	 -s             Prevent NetCrow Start Message"
 	print "	 -t		Send Test E-Mail"
+	print "  --AutoStart-enable     Enable automatical Boot"
+        print "  --AutoStart-disable    Disable automatical Boot"
 	print ""
 
 
@@ -278,12 +307,28 @@ elif sys.argv[2]=="-t":
         TestMail()
 	BootBol = 1	
 
+elif sys.argv[1]=="--AutoStart-enable":
+        AutoStart()
+        BootBol = 1
+elif sys.argv[2]=="--AutoStart-enable":
+        AutoStart()
+        BootBol = 1
+
+elif sys.argv[1]=="--AutoStart-disable":
+        AutoStartDis()
+        BootBol = 1
+elif sys.argv[2]=="--AutoStart-disable":
+        AutoStartDis()
+        BootBol = 1
+
+
 elif sys.argv[1]=="-d":
         DeleteBackup()
         BootBol = 1
 elif sys.argv[2]=="-d":
         DeleteBackup()
         BootBol = 1
+        
 
 		
 
