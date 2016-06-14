@@ -45,7 +45,7 @@ The main Features are:
     Info: https://support.google.com/accounts/answer/6010255?hl=en <br />
     Disable: https://www.google.com/settings/security/lesssecureapps
 
-# Installing Automatic Boot (Only if needed)
-  sudo python AutoStart.py
+# Enable Automatic Boot (Only if needed)
+  sudo python attack.py --AutoStart-Enable
 
  
