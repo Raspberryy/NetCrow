@@ -195,6 +195,7 @@ def FinishExe():
 		os.system("shutdown now")
 	if FinishExecution == "stay":
 		print yell + "[*]" + white + "NetCrow has finished Working - Close it manually"
+		print ""
 		
 	
 # Define Sub-Functions	
