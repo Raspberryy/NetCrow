@@ -69,8 +69,7 @@ def BootingAttack():
 	AutoEmailSend()
 	SaveOldFile()
 	os.system("rm "+ Path  + "/ettercap.txt")
-	if rebootbol != 1:
-	        os.system("reboot")	
+	FinishExe()	
 
 
 
