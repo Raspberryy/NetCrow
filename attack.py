@@ -308,6 +308,7 @@ def PrintHelp():
 
 
 # Main Program - Test for Commands
+time.sleep(15)
 
 if len(sys.argv)==1:
 	sys.argv.append(" ")
