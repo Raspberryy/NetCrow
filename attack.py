@@ -217,7 +217,9 @@ def AutoStart():
 	os.system(CommandString)
 	os.system("sudo crontab mycron")
 	os.system("sudo rm mycron")
-	CommandLauncher = "echo \'sudo python " + Path + "/attack.py\' > launcher.sh"
+	CommandLauncher = "echo \'sleep 15 \' > launcher.sh"
+        os.system(CommandLauncher)
+	CommandLauncher = "echo \'sudo python " + Path + "/attack.py\' >> launcher.sh"
 	os.system(CommandLauncher)
 
 def AutoStartDis():
@@ -318,7 +320,6 @@ def PrintHelp():
 
 
 # Main Program - Test for Commands
-time.sleep(15)
 
 if len(sys.argv)==1:
 	sys.argv.append(" ")
