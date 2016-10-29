@@ -19,9 +19,9 @@ Sender = ""
 Password = ""
 Reciever = ""
 
-SaveDelay = 15		# Time Delay before Saving 
-ReRun = 10		# Repetition of Saving
-FinishExecution = "reboot" # Possible "reboot" "shutdown" "stay" - Standart "reboot"
+SaveDelay = 15			# Time Delay before Saving 
+ReRun = 10			# Repetition of Saving
+FinishExecution = "reboot" 	# Possible "reboot" "shutdown" "stay" - Standart "reboot"
 
 nettest = 0
 SendBoot = 0
