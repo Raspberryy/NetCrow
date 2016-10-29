@@ -298,7 +298,6 @@ def PrintHelp():
 	print "	 -b             Start Attack in Background"
 	print "	 -d             Delete Backups in Logging"	
 	print "	 -h --help	Prints this"	
-	print "	 -r 		Prevent Reboot"
 	print "	 -s             Prevent NetCrow Start Message"
 	print "	 -t		Send Test E-Mail"
 	print "	 --AutoStart-enable     Enable automatical Boot"
