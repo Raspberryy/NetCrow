@@ -51,18 +51,18 @@ def BootingAttack():
 		SendBootUp()
 		
 	try:
-        StartAttack()
+        	StartAttack()
 	except:
-        ErrSub = "Starting the Atttack FAILED"
+        	ErrSub = "Starting the Atttack FAILED"
         try:
-			interface_comm = "route -n | grep 'UG[ \t]' | awk '{print $8}'"
-			interface_get = os.popen(interface_comm).read()
-			UpTimeTemp = GetUpTime()
-			interface = interface_get[0:4]
-			ErrText = "Connection to Internet               Yes \nConnection to Network via " + interface + "\nUptime                             " + UpTimeTemp
+		interface_comm = "route -n | grep 'UG[ \t]' | awk '{print $8}'"
+		interface_get = os.popen(interface_comm).read()
+		UpTimeTemp = GetUpTime()
+		interface = interface_get[0:4]
+		ErrText = "Connection to Internet               Yes \nConnection to Network via " + interface + "\nUptime                             " + UpTimeTemp
         except:
-			ErrText = "Connection to Internet               Yes \nConnection to Network             No" + "\nUptime                            " + UpTimeTemp
-			SendMail(ErrSub, ErrText)
+		ErrText = "Connection to Internet               Yes \nConnection to Network             No" + "\nUptime                            " + UpTimeTemp
+		SendMail(ErrSub, ErrText)
 
 
 	# Preparing Reboot
