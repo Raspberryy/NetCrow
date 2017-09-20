@@ -22,7 +22,7 @@ The main Features are:
   cd to/path/you/want/to/install <br />
   git clone https://github.com/Raspberryy/NetCrow.git <br />
   cd NetCrow/ <br />
-  sh install.sh <br />
+  python attack.py -install <br />
   
 # Enable IP IpTables
   sudo nano /etc/ettercap/etter.conf<br />
