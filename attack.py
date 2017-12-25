@@ -11,7 +11,7 @@ from email.mime.text import MIMEText
 
 # Define Attributes
 
-Version = "3.1
+Version = "3.1"
 Creator = "Raspberry"
 Published = "https://github.com/Raspberryy/NetCrow"
 
@@ -141,7 +141,7 @@ def AutoEmailSend():
 		# Send Mail
 		Time = (datetime.datetime.now()).strftime("%H:%M:%S")
        		Date = time.strftime("%d/%m/%Y")
-		SubjectAttackFinished = "New Informations - " + Time + " the " + Date + " !!!"
+		SubjectAttackFinished = "New Information - " + Time + " the " + Date + " !!!"
 		
 		# Getting and Setting Text
 		ettertext = open(Path + "/ettercap.txt", 'rb')
