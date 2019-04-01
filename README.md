@@ -12,10 +12,6 @@ The main Features are:
  - Sending gathered Data via E-Mail to the User
  - Autosaving 
 
-# Video Tutorials <br />
- 
- English:  https://www.youtube.com/watch?v=F98rhEgD9n8 <br />
- German:  https://www.youtube.com/watch?v=TEVSmMf0Kyc  
 
 # Installing NetCrow
   sudo -i <br />
